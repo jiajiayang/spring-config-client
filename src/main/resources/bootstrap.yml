@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spring-config-client
+  cloud:
+    config:
+#      uri: http://127.0.0.1:8082
+      label: master
+      discovery:
+        enabled: true
+        service-id: spring-config-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8001/eureka,http://127.0.0.1:8002/eureka,http://127.0.0.1:8003/eureka
+  instance:
+    prefer-ip-address: true
+management:
+  health:
+    refresh:
+      enabled: true
+
+
+#curl -X POST  http://127.0.0.1:8081/actuator/refresh
